@@ -43,7 +43,7 @@ Render the result to the HTML template.
 Publish the website in Localhost.
 
 ## PROGRAM:
-
+```
 <html>
     <head>
         <title>GST CALCULATOR</title>
@@ -122,7 +122,7 @@ from mathapp import views
 urlpatterns = [
     path('', views.gst_calculate, name='Total')
 ]
-
+```
 
 ## OUTPUT - SERVER SIDE:
 
