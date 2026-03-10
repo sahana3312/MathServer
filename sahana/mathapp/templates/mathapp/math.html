@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>GST CALCULATOR</title>
+        <style>
+            body
+            {
+                background: linear-gradient(45deg,purple,blue); 
+            }
+            .box
+            {
+               width: 500px;
+               height: 400px;
+               background-color: rgb(218, 103, 224);
+               border:dotted 3px rgb(37, 19, 96);
+               padding: 9px;
+               margin-left: 300px;
+               margin-top: 102px;
+               position:fixed;
+               top: 100px;
+               left: 360px; 
+            }
+            h2
+            {   
+                   text-align: center;
+            }
+            h3
+            {
+                  text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h2 align="center">GST CALCULATOR</h2>
+            <h3 align="center">SAHANA S(25015837) </h3>
+            <h2 align="center">CALCULATION</h2>
+            <form method="POST" align="center">
+        
+                <label>PRICE:</label>
+                <input type="text" name="price" value="{{ price }}">
+                <br>
+                <br>
+                <label>GST:</label>
+                <input type="text" name="gst" value="{{ gst }}">
+                <br>
+                <br>
+                <input type="submit" value="calculate">
+                <br>
+                <br>
+                <label>TOTAL AMOUNT</label>
+                <input type="text" name="total_amount" value="{{ total_amount }}">
+            </form>
+        </div>
+    </body>
+</html>
