@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+        <title>
+            GST Calculator
+        </title>
+        <style>
+            body
+            {
+               background-color: rgb(94, 177, 166); 
+            }
+            .box
+            {
+               width: 600px;
+               height: 300px;
+               background-color: rgb(163, 80, 141);
+               border:dotted 3px NAVY;
+               padding: 10px;
+               margin-left: 275px;
+               margin-top: 100px;
+               position:fixed;
+               top: 100px;
+               left: 275px; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h2 align="center">GST BILL CALCULATOR</h2>
+            <h3 align="center">SAHANA S (25015837) </h3>
+            <h2 align="center">CALCULATION</h2>
+            <form method="post" align="center">
+                {% csrf_token %}
+                <label>PRICE:</label>
+                <input type="text" name="price" value="{{ price }}">
+                <br>
+                <br>
+                <label>GST:</label>
+                <input type="text" name="gst" value="{{ gst }}">
+                <br>
+                <br>
+                <input type="submit" value="calculate">
+                <br>
+                <label>TOTAL BILL:</label>
+                <input type="text" name="total_bill" value="{{ total_bill }}">
+            </form>
+        </div>
+    </body>
+</html>

@@ -44,44 +44,40 @@ Publish the website in Localhost.
 
 ## PROGRAM:
 ```
+math.html
+
 <html>
     <head>
-        <title>GST CALCULATOR</title>
+        <title>
+            GST Calculator
+        </title>
         <style>
             body
             {
-                background: linear-gradient(45deg,purple,blue); 
+               background-color: rgb(94, 177, 166); 
             }
             .box
             {
-               width: 500px;
-               height: 400px;
-               background-color: rgb(218, 103, 224);
-               border:dotted 3px rgb(37, 19, 96);
-               padding: 9px;
-               margin-left: 300px;
-               margin-top: 102px;
+               width: 600px;
+               height: 300px;
+               background-color: rgb(163, 80, 141);
+               border:dotted 3px NAVY;
+               padding: 10px;
+               margin-left: 275px;
+               margin-top: 100px;
                position:fixed;
                top: 100px;
-               left: 360px; 
-            }
-            h2
-            {   
-                   text-align: center;
-            }
-            h3
-            {
-                  text-align: center;
+               left: 275px; 
             }
         </style>
     </head>
     <body>
         <div class="box">
-            <h2 align="center">GST CALCULATOR</h2>
-            <h3 align="center">SAHANA S(25015837) </h3>
+            <h2 align="center">GST BILL CALCULATOR</h2>
+            <h3 align="center">SAHANA S (25015837) </h3>
             <h2 align="center">CALCULATION</h2>
-            <form method="POST" align="center">
-        
+            <form method="post" align="center">
+                {% csrf_token %}
                 <label>PRICE:</label>
                 <input type="text" name="price" value="{{ price }}">
                 <br>
@@ -92,46 +88,46 @@ Publish the website in Localhost.
                 <br>
                 <input type="submit" value="calculate">
                 <br>
-                <br>
-                <label>TOTAL AMOUNT</label>
-                <input type="text" name="total_amount" value="{{ total_amount }}">
+                <label>TOTAL BILL:</label>
+                <input type="text" name="total_bill" value="{{ total_bill }}">
             </form>
         </div>
     </body>
 </html>
 
-views.py 
+views.py
+
 
 from django.shortcuts import render
-def gst_calculate(request):
+def calculate_gst(request):
     price = int(request.POST.get('price', '0'))
-    gst = int(request.POST.get('gst', '1'))
-    total_amount=price+(price*gst/100) if request.method == 'POST' else 0
+    gst = int(request.POST.get('gst', '0'))
+    total_bill = price+(price*gst/100) if request.method == 'POST' else 0
     print("Price=",price)
     print("GST=",gst)
-    print("Total Amount=",total_amount)
-    return render(request, 'mathapp/math.html', {'Price': price, 'GST': gst, 'Total Amount': total_amount})
-
+    print("Total Bill=",total_bill)
+    return render(request, 'mathapp/math.html', {'Price': price, 'GST': gst, 'Total Bill': total_bill})
 
 urls.py
 
-
-from django.contrib import admin 
-from django.urls import path  
+from django.contrib import admin
+from django.urls import path
 from mathapp import views
+
 urlpatterns = [
-    path('', views.gst_calculate, name='Total')
+    path('', views.calculate_gst, name='Total')
 ]
+
 ```
 
 ## OUTPUT - SERVER SIDE:
 
-![alt text](image.png)
+![alt text](image-2.png)
 
 
 ## OUTPUT - WEBPAGE:
 
-![alt text](image-1.png)
+![alt text](image-3.png)
 
 
 ## RESULT:
